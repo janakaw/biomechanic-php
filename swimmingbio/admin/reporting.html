@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta  content="text/html; charset=iso-8859-1"  http-equiv="expires" content="0"/>
+    
+	<title>Swimming Biomechanics</title>
+	<link href="css/sb.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="css/tcal.css" />
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+       <script type="text/javascript" src="js/validate_reporting.js" ></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+      <script type="text/javascript" src="js/tcal.js"></script>
+	<SCRIPT LANGUAGE="JavaScript">
+<!-- Idea by:  Nic Wolfe -->
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=500,height=500,left = 390,top = 150');");
+}
+// End -->
+<!------Flash installation------------------>
+</script>
+	<script type="text/javascript" src="swfobject.js"></script>
+	<script type="text/javascript">
+		var flashvars = {};
+		var params = {};
+		var attributes = {};
+		swfobject.embedSWF("sb_player1.swf", "myAlternativeContent", "362", "304", "9.0.0", "expressInstall.swf", flashvars, params, attributes);
+	</script>
+	</head>
+
+	<body>
+   <div id="container">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="moduleList.php">Swimming Biomechanics</a></h1>
+        </div>
+          <div id="login_register" class="login_register">
+          <ul>
+        <li id="l"><font color="#FFFFFF">Administrator</font></li>
+        <li id="r"><a href="index.html">Logout</a></li>
+      </ul>
+        </div>
+       <div id="mainnav">
+          <ul>
+            <li id="nav01" ><a href="moduleList.php">Module Management</a></li>
+            <li id="nav02" ><a href="contentManagement.php">Content Management</a></li>
+            <li id="nav03" ><a href="user_mgt.php">User Management</a></li>
+            <li id="nav04" class="selected"><a href="reporting.html">Reporting</a></li>
+          </ul>
+        </div>
+        <!-------end MAINNAV DIV ----------> 
+        
+      </div>
+      <!-------end header div ---------->
+      
+      <h2>Reporting</h2>
+      <div id="c_all">
+        
+        <div id="content_rh" style="height:auto; margin-left:10px;">
+          
+             <form class="form-horizontal" id="reporting" style="width:950px;">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Reporting</legend>
+<div class="control-group">
+  <label class="control-label" for="select">Search Type</label>
+  <div class="controls">
+    <select id="select" name="select" class="input-xlarge">
+	  <option selected>Transaction</option>
+      <option>Message</option>
+      <option>User</option>
+      <option>Module</option>
+    </select>
+  </div>
+</div>
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="select">Transaction Type</label>
+  <div class="controls">
+    <select id="select" name="select" class="input-xlarge">
+	<option selected>All</option>
+      <option>Payment</option>
+      <option>Subscription</option>
+      <option>Login</option>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label class="control-label" for="textinput" >Start Date</label>
+  <div class="controls">
+    <input id="date" name="date" type="text" placeholder="Select the date" class="input-xlarge tcal"><span class="help-block"></span> 
+  </div>
+    <label class="control-label" for="textinput" >End Date</label>
+  <div class="controls">
+    <input id="date" name="date" type="text" placeholder="Select the date" class="input-xlarge tcal"><span class="help-block"></span> 
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="userName">User Name</label>
+  <div class="controls">
+    <input id="userName" name="userName" type="text" placeholder="Enter the user name here" class="input-xlarge" required="required"> <span class="help-block"></span>
+    
+  </div>
+</div>
+<!-- Button -->
+<div class="control-group">
+  
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+</fieldset>
+</form>
+<div>
+<table class="table table-bordered" style="border:#000 1px solid">
+    <tr style="font-weight:bold">
+        <td>User Name</td>
+        <td>Transaction Date</td>
+        <td>Transaction Time</td>
+        <td>Transaction Type</td>
+        <td>Transaction status</td>
+		<td>Module Number</td>
+        
+       
+</tr>
+<tr>
+        <td>User1@example.com</td>
+        <td>2013-12-19</td>
+        <td>15.00</td>
+        <td >Subscription</td>
+        <td>Successful</td>
+        <td>5</td>
+</tr>
+
+<tr>
+        <td>User2@example.com</td>
+        <td>2013-12-19</td>
+        <td>08.00</td>
+        <td>Login</td>
+        <td>Fail</td>
+        <td></td>
+</tr>
+<tr>
+        <td>User3@example.com</td>
+        <td>2013-12-19</td>
+        <td>13.12</td>
+        <td>Payment</td>
+        <td>Fail</td>
+        <td>2</td>
+</tr>
+</table>
+</div>
+      
+        </div>
+      </div>
+      <!-------CONTENT DIV CLOSE---------->
+      
+      <div class="clear"></div>
+      <div id="footer">
+        <div id="footer_content">
+          <div id="footer_right">
+            <p>© Swimming Biomechanics 2013.</p>
+            <br/>
+            <p> All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+      <!----------FOOTER DIV CLOSE-------> 
+    </div>
+    <!-------CONTEAINER DIV CLOSE---------->
+
+    <div id="footer_wrap"></div>
+    <div id="light" class="white_content">
+    
+   
+    
+    <div id="closeButton"> <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
+    
+    
+<iframe id="player_frame" src="http://192.248.12.9/~114012F/vdo/vdo.html"></iframe>    
+    </div>
+    <div id="fade" class="black_overlay"></div>
+</body>
+</html>

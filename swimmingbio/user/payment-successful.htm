@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Swimming Biomechanics</title>
+        <link href="css/sb.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+            var action = "";
+            $(document).ready(function() {
+
+                var title = document.getElementById('title').value;
+                var price = document.getElementById('price').value;
+                if (title == '' && price == '') {
+                    action = "addmodule.php";
+                } else {
+                    action = "updateModule.php";
+                }
+            });
+
+            function submitForm() {
+                if (document.getElementById('title').value == '') {
+                    $('#msg').html('<div class="alert alert-error"> <button data-dismiss="alert" class="close" type="button">×</button> <h4>Warning!</h4> Please add the module title. </div>');
+                } else if (document.getElementById('price').value == '') {
+                    $('#msg').html('<div class="alert alert-error"> <button data-dismiss="alert" class="close" type="button">×</button> <h4>Warning!</h4> Please add the module price $. </div>');
+                } else {
+                    var frm = $('#addForm');
+
+                    $.ajax({
+                        type: frm.attr('method'),
+                        url: action,
+                        data: frm.serialize(),
+                        error: function() {
+                            $('#msg').html('<div class="alert alert-error"> <button data-dismiss="alert" class="close" type="button">×</button> <h4>Warning!</h4> Something getting wrong. please contact site administrator. </div>');
+                            return false;
+                        },
+                        beforeSend: function() {
+
+                        },
+                        success: function(data) {
+                            //$('#msg').html(data);
+                            if (data.indexOf('ERROR') > 0) {
+                                $('#msg').html('<div class="alert alert-error"> <button data-dismiss="alert" class="close" type="button">×</button> <h4>Error!</h4> Something getting wrong. please contact site administrator. </div>');
+                            } else if (data.indexOf('UPDATED') > 0) {
+                                $('#msg').html('<div class="alert alert-success"><button data-dismiss="alert" class="close" type="button">×</button><strong>Success!</strong> You have successfully updated the module.</div>');
+                            } else {
+                                $('#msg').html('<div class="alert alert-success"><button data-dismiss="alert" class="close" type="button">×</button><strong>Success!</strong> You have successfully added a new module.</div>');
+                                action = "updateModule.php";
+                                document.getElementById('modId').value = data;
+                                document.getElementById('id').value = data;
+                                document.getElementById("addPageBtn").disabled = false;
+                            }
+
+                            setTimeout(function() {
+                                $('#msg').html('')
+                            }, 3000);
+
+                        }
+
+                    });
+                }
+
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="moduleList.php">Swimming Biomechanics</a></h1>
+                </div>
+                <div id="login_register" class="login_register">
+                    <ul>
+                        <li id="l"><font color="#FFFFFF">Administrator</font></li>
+                        <li id="r"><a href="admin_logout.php">Logout</a></li>
+                    </ul>
+                </div>
+                <div id="mainnav">
+                    <ul>
+                        <li id="nav01" class="selected"><a href="moduleList.php">Module Management</a></li>
+                        <li id="nav02" ><a href="contentManagement.php">Content Management</a></li>
+                        <li id="nav03" ><a href="user_mgt.php">User Management</a></li>
+                        <li id="nav04" ><a href="reporting.html">Reporting</a></li>
+                    </ul>
+                </div>
+                <!-------end MAINNAV DIV ----------> 
+
+            </div>
+            <!-------end header div ---------->
+
+            <h2>Thank You</h2>
+
+<p>Your payment was successful. Thank you.</p>
+
+
+      <!-------CONTENT DIV CLOSE---------->
+      
+      <div class="clear"></div>
+      <div id="footer">
+        <div id="footer_content">
+          <div id="footer_right">
+            <p>© Swimming Biomechanics 2013.</p>
+            <br/>
+            <p> All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+      <!----------FOOTER DIV CLOSE-------> 
+    </div>
+    <!-------CONTEAINER DIV CLOSE---------->
+
+    <div id="footer_wrap"></div>
+    <div id="light" class="white_content">
+    
+   
+    
+    <div id="closeButton"> <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
+    
+   
+    </div>
+    <div id="fade" class="black_overlay"></div>
+</body>
+</html>
+
